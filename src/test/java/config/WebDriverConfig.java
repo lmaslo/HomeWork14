@@ -1,22 +1,24 @@
 package config;
 
+import org.aeonbits.owner.Config;
+
 import java.net.URL;
 
-public class WebDriverConfig {
+public interface WebDriverConfig extends Config {
 
+    @Key("baseUrl")
+    @DefaultValue("https://github.com/")
+    String getBaseUrl();
 
-    public Browser getBrowser() {
-        return Browser.FIREFOX;
-    }
+    @Key("browser")
+    @DefaultValue("CHROME")
+    Browser getBrowser();
 
-    public String getBaseUrl(){
-        return "https://github.com/";
-    }
+    @Key("isRemote")
+    @DefaultValue("false")
+    boolean isRemote();
 
-    public boolean isRemote (){
-        return false;
-    }
-    public URL getRemoteUrl (){
-        return null;
-    }
+    @Key("remoteUrl")
+    URL getRemoteUrl();
+
 }

@@ -1,5 +1,6 @@
 package config;
 
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -13,7 +14,7 @@ public class WebDriverProveder implements Supplier<WebDriver> {
     //Следующие 4 строки тоже самое, что строкой выше
     private final WebDriverConfig config;
     public WebDriverProveder() {
-        this.config = new WebDriverConfig();
+        this.config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
     }
 
     @Override
